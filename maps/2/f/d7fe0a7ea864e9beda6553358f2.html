@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xml:lang="ru" lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<head lang="ru">
+	<title>Моя родословная - Карта семьи</title>
+	<meta charset="UTF-8" />
+	<meta name ="viewport" content="width=device-width; height=device-height; initial-scale=1.0; minimum-scale=0.5; maximum-scale=10.0; user-scalable=yes" />
+	<meta name ="apple-mobile-web-app-capable" content="yes" />
+	<meta name="generator" content="Gramps GrampsAIO64-5.0.1-1 http://gramps-project.org/" />
+	<meta name="author" content="Дмитрий Домрачев" />
+	<link href="../../../images/favicon2.ico" rel="shortcut icon" type="image/x-icon" />
+	<link href="../../../css/narrative-print.css" media="print" rel="stylesheet" type="text/css" />
+	<link href="../../../css/narrative-screen.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="../../../css/narrative-maps.css" media="screen" rel="stylesheet" type="text/css" />
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script deter="deter" style="width =100%; height =100%;" type="text/javascript">
+
+  var marker_png = '../../../images/marker.png'
+
+
+  var tracelife = [
+    ['д. Мосуново, Шарангский район, Нижегородская область', 57.13361111, 46.56750000, 1],
+    ['с. Кувшинское, Санчурский район, Кировская область, Россия', 57.02055556, 47.15694444, 2],
+    ['205 подвижной танкоремонтный завод', 41.47083333, 69.56638889, 3],
+    ['д. Большой Шудугуж, Килемарский район, Марий Эл, Россия', 56.82635000, 46.44387900, 4],
+    ['Майский, Килемарский район, Марий Эл, Россия', 56.77722222, 46.21805556, 5],
+    ['п. Борский, Килемарский район, Марий Эл, Россия', 56.71194444, 46.47888889, 6],
+    ['СОШ №14, г. Балаково, Саратовская область, Россия', 52.02366100, 47.77764400, 7],
+    ['СОШ №14, г. Балаково, Саратовская область, Россия', 52.02366100, 47.77764400, 8],
+    ['Балаковский ОГВК, г. Балаково, Саратовская область, Россия', 52.04250100, 47.78844500, 9],
+    ['г. Балаково, Саратовская область, Россия', 52.00000000, 47.80000000, 10],
+    ['г. Балаково, Саратовская область, Россия', 52.00000000, 47.80000000, 11],
+    ['г. Балаково, Саратовская область, Россия', 52.00000000, 47.80000000, 12],
+    ['г. Балаково, Саратовская область, Россия', 52.00000000, 47.80000000, 13],
+    ['Кладбище №3, г. Балаково, Саратовская область, Россия', 51.98526300, 47.75142200, 14],
+    ['г. Балаково, Саратовская область, Россия', 52.00000000, 47.80000000, 15]
+  ];
+  var map;
+  var myLatLng = new google.maps.LatLng(49.30222200, 57.89222000);
+
+  function initialize() {
+    var mapOptions = {
+      scaleControl:    true,
+      panControl:      true,
+      backgroundColor: '#000000',
+      zoom:            3,
+      center:          myLatLng,
+      mapTypeId:       google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById("map_canvas"),
+                              mapOptions);
+    addMarkers();
+  }
+
+  function addMarkers() {
+    var bounds = new google.maps.LatLngBounds();
+
+    for (var i = 0; i < tracelife.length; i++) {
+      var location = tracelife[i];
+      var myLatLng = new google.maps.LatLng(location[1], location[2]);
+
+      var marker = new google.maps.Marker({
+        position:  myLatLng,
+        draggable: true,
+        title:     location[0],
+        map:       map,
+        zIndex:    location[3]
+      });
+      bounds.extend(myLatLng);
+      if ( i > 1 ) { map.fitBounds(bounds); };
+    }
+  }
+</script>
+</head>
+<body id ="FamilyMap" onload ="initialize()">
+	<div id="header">
+		<h1 id="SiteTitle">Моя родословная</h1>
+	</div>
+	<div class="wrapper" id="nav" role="navigation">
+		<div class="container">
+			<ul class="menu" id="dropmenu">
+				<li><a href="../../../index.html" title="Домой">Домой</a></li>
+				<li><a href="../../../introduction.html" title="Введение">Введение</a></li>
+				<li><a href="../../../individuals.html" title="Люди">Люди</a></li>
+				<li><a href="../../../surnames.html" title="Фамилии">Фамилии</a></li>
+				<li><a href="../../../families.html" title="Семьи">Семьи</a></li>
+				<li><a href="../../../events.html" title="События">События</a></li>
+				<li><a href="../../../places.html" title="Места">Места</a></li>
+				<li><a href="../../../sources.html" title="Источники">Источники</a></li>
+				<li><a href="../../../repositories.html" title="Хранилища">Хранилища</a></li>
+				<li><a href="../../../addressbook.html" title="Адресная книга">Адресная книга</a></li>
+				<li><a href="../../../contact.html" title="Контакт">Контакт</a></li>
+			</ul>
+			<ul class="menu" id="dropmenu">
+				<li><a href="../../../statistics.html" title="Статистика">Статистика</a></li>
+				<li><a onclick="history.go(-1);">Предыдущее</a></li>
+				<li><a onclick="history.go(+1);">Следующее</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="content" id="FamilyMapDetail">
+		<h3>Отслеживание Домрачева Антонина Васильевна</h3>
+		<p id="description">
+		Эта страница отображает карту со всеми событиями и местами лица и всех его потомках. Если поместите курсор над отметкой, то отобразится название места. Отметки и ссылки хранятся с сортировкой по дате (если такая есть). Клик на имени места в разделе ссылок перенесёт Вас на страницу данного места.
+		</p>
+		<div id="map_canvas">
+		</div>
+		<div id="popup"></div>
+		<div class="subsection" id="references">
+			<h4>Ссылки</h4>
+			<table class="infolist">
+				<thead>
+					<tr>
+						<th class="ColumnDate">Дата</th>
+						<th class="ColumnPlace">Название места</th>
+						<th class="ColumnType">Тип события</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="ColumnDate">1938-04-05</td>
+						<td class="ColumnPlace"><a href="../../../plc/c/3/d81cce953b4662f9ed8a9e4fa3c.html" title="д. Мосуново, Шарангский район, Нижегородская область">д. Мосуново, Шарангский район, Нижегородская область</a></td>
+						<td class="ColumnType">Рождение</td>
+					</tr>
+					<tr>
+						<td class="ColumnDate">1940-06-22</td>
+						<td class="ColumnPlace"><a href="../../../plc/f/c/d7fe0a7ea906cdd456223bd74cf.html" title="с. Кувшинское, Санчурский район, Кировская область, Россия">с. Кувшинское, Санчурский район, Кировская область, Россия</a></td>
+						<td class="ColumnType">Рождение</td>
+					</tr>
+					<tr>
+						<td class="ColumnDate">1957-11-15 - 1960-10-29</td>
+						<td class="ColumnPlace"><a href="../../../plc/7/b/da93514ad593a55288769385b7.html" title="205 подвижной танкоремонтный завод">205 подвижной танкоремонтный завод</a></td>
+						<td class="ColumnType">Воинская служба</td>
+					</tr>
+					<tr>
+						<td class="ColumnDate">1960-12-26</td>
+						<td class="ColumnPlace"><a href="../../../plc/8/b/ddf0f2dd1ee1e46789f3fab11b8.html" title="д. Большой Шудугуж, Килемарский район, Марий Эл, Россия">д. Большой Шудугуж, Килемарский район, Марий Эл, Россия</a></td>
+						<td class="ColumnType">Брак</td>
+					</tr>
+					<tr>
+						<td class="ColumnDate">1961-12-06</td>
+						<td class="ColumnPlace"><a href="../../../plc/2/d/d7fe0a7ea5429642a116e2b85d2.html" title="Майский, Килемарский район, Марий Эл, Россия">Майский, Килемарский район, Марий Эл, Россия</a></td>
+						<td class="ColumnType">Рождение</td>
+					</tr>
+					<tr>
+						<td class="ColumnDate">1965-06-20</td>
+						<td class="ColumnPlace"><a href="../../../plc/e/c/d7fe0a7e91e2cf94431383123ce.html" title="п. Борский, Килемарский район, Марий Эл, Россия">п. Борский, Килемарский район, Марий Эл, Россия</a></td>
+						<td class="ColumnType">Рождение</td>
+					</tr>
+					<tr>
+						<td class="ColumnDate">1979-09-14</td>
+						<td class="ColumnPlace"><a href="../../../plc/7/4/ddeb9eef3366804945678bb047.html" title="СОШ №14, г. Балаково, Саратовская область, Россия">СОШ №14, г. Балаково, Саратовская область, Россия</a></td>
+						<td class="ColumnType">Награда</td>
+					</tr>
+					<tr>
+						<td class="ColumnDate">1972-09-01 - 1980-06-12</td>
+						<td class="ColumnPlace"><a href="../../../plc/7/4/ddeb9eef3366804945678bb047.html" title="СОШ №14, г. Балаково, Саратовская область, Россия">СОШ №14, г. Балаково, Саратовская область, Россия</a></td>
+						<td class="ColumnType">Образование</td>
+					</tr>
+					<tr>
+						<td class="ColumnDate">1984-05-06</td>
+						<td class="ColumnPlace"><a href="../../../plc/0/a/ddebba6d7295b60676c411f14a0.html" title="Балаковский ОГВК, г. Балаково, Саратовская область, Россия">Балаковский ОГВК, г. Балаково, Саратовская область, Россия</a></td>
+						<td class="ColumnType">Воинская служба</td>
+					</tr>
+					<tr>
+						<td class="ColumnDate">1989-02-09</td>
+						<td class="ColumnPlace"><a href="../../../plc/b/a/d7fe0a7e82e18843ae272875bab.html" title="г. Балаково, Саратовская область, Россия">г. Балаково, Саратовская область, Россия</a></td>
+						<td class="ColumnType">Почетное звание</td>
+					</tr>
+					<tr>
+						<td class="ColumnDate">1994-05-19</td>
+						<td class="ColumnPlace"><a href="../../../plc/b/a/d7fe0a7e82e18843ae272875bab.html" title="г. Балаково, Саратовская область, Россия">г. Балаково, Саратовская область, Россия</a></td>
+						<td class="ColumnType">Уход на пенсию</td>
+					</tr>
+					<tr>
+						<td class="ColumnDate">1995-06-22</td>
+						<td class="ColumnPlace"><a href="../../../plc/b/a/d7fe0a7e82e18843ae272875bab.html" title="г. Балаково, Саратовская область, Россия">г. Балаково, Саратовская область, Россия</a></td>
+						<td class="ColumnType">Уход на пенсию</td>
+					</tr>
+					<tr>
+						<td class="ColumnDate">2000-04-25</td>
+						<td class="ColumnPlace"><a href="../../../plc/b/a/d7fe0a7e82e18843ae272875bab.html" title="г. Балаково, Саратовская область, Россия">г. Балаково, Саратовская область, Россия</a></td>
+						<td class="ColumnType">Смерть</td>
+					</tr>
+					<tr>
+						<td class="ColumnDate">2000-04-27</td>
+						<td class="ColumnPlace"><a href="../../../plc/0/4/da9358742797be3371107c52c40.html" title="Кладбище №3, г. Балаково, Саратовская область, Россия">Кладбище №3, г. Балаково, Саратовская область, Россия</a></td>
+						<td class="ColumnType">Захоронение</td>
+					</tr>
+					<tr>
+						<td class="ColumnDate">2008-06-27</td>
+						<td class="ColumnPlace"><a href="../../../plc/b/a/d7fe0a7e82e18843ae272875bab.html" title="г. Балаково, Саратовская область, Россия">г. Балаково, Саратовская область, Россия</a></td>
+						<td class="ColumnType">Почетное звание</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="fullclear"></div>
+	<div id="footer">
+		<p id="createdate">
+		Создано с помощью <a href="http://gramps-project.org/">Gramps</a> GrampsAIO64-5.0.1-1 в 26 февраля 2019<br />Создано для Вся база данных
+		</p>
+		<p id="copyright">
+		&copy; 2019 Дмитрий Домрачев
+		</p>
+	</div>
+</body>
+</html>
