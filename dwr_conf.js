@@ -4,22 +4,22 @@ DWR_VERSION_410 = true;
 DWR_VERSION_412 = true;
 DWR_VERSION_420 = true;
 DWR_VERSION_500 = true;
-TITLE = "Моё семейное древо";
+TITLE = "Семейное древо Домрачева Д.В.";
 SPLIT = 5000;
 DB_SIZES = {
-    "C": 24,
-    "F": 6,
-    "I": 7,
-    "M": 13,
-    "N": 2,
-    "P": 16,
-    "R": 4,
-    "S": 15
+    "C": 312,
+    "F": 202,
+    "I": 554,
+    "M": 0,
+    "N": 105,
+    "P": 231,
+    "R": 14,
+    "S": 138
 };NB_GENERATIONS_MAX = 10;
-PAGES_FILE = ["index.html", "", "tree_svg.html", "custom_1.html", "custom_2.html", "custom_3.html"];
-PAGES_TITLE = ["Домой", "Индексы", "Древо", "Выбранная страница 1", "Выбранная страница 2", "Выбранная страница 3"];
-PAGES_FILE_INDEX = ["surnames.html", "persons.html", "families.html", "sources.html", "medias.html", "places.html", "repositories.html", "address.html"];
-PAGES_TITLE_INDEX = ["Фамилии", "Люди", "Семьи", "Источники", "Альбом", "Места", "Хранилища", "Адреса"];
+PAGES_FILE = ["index.html", "", "tree_svg.html"];
+PAGES_TITLE = ["Домой", "Индексы", "Древо"];
+PAGES_FILE_INDEX = ["surnames.html", "persons.html", "families.html", "sources.html", "places.html", "repositories.html", "address.html"];
+PAGES_TITLE_INDEX = ["Фамилии", "Люди", "Семьи", "Источники", "Места", "Хранилища", "Адреса"];
 SVG_TREE_TYPES_NAMES = ["Древо предков", "Древо потомков", "Древо потомков с супругами", "Древо предков и потомков", "Древо предков и потомков с супругами"];
 SVG_TREE_SHAPES_NAMES = ["Вертикально (↓)", "Вертикально (↑)", "Горизонтально (→)", "Горизонтально (←)", "Полный круг", "Полукруг", "Квадрант"];
 SVG_TREE_DISTRIB_ASC_NAMES = ["Размер пропорцианален числу предков", "Однородное распределение родителей"];
@@ -80,13 +80,13 @@ INDEX_SHOW_PARTNER=true;
 INDEX_SHOW_PARENTS=true;
 INDEX_SHOW_PATH=true;
 INDEX_SHOW_BKREF_TYPE=true;
-INDEX_DEFAULT_SIZE = 0;
+INDEX_DEFAULT_SIZE = 3;
 INDEXES_SIZES = [[10, 50, 100, 500, 1000, 5000], ['10', '50', '100', '500', '1000', '5000']];
 SHOW_ALL_SIBLINGS=true;
 INC_EVENTS=false;
 INC_FAMILIES=true;
 INC_SOURCES=true;
-INC_MEDIA=true;
+INC_MEDIA=false;
 INC_PLACES=true;
 INC_REPOSITORIES=true;
 INC_NOTES=true;
